@@ -14,7 +14,7 @@ import com.educandoweb.course.services.ServicoDePedidos;
 
 @RestController
 @RequestMapping(value="/orders")
-public class RepositoryResource {
+public class PedidoResource {
 	
 	@Autowired
 	private ServicoDePedidos service;
