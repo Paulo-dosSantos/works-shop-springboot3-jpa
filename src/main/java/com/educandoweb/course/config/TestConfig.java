@@ -45,7 +45,8 @@ public class TestConfig implements CommandLineRunner{
 		Produto p4= new Produto(null,"PC Gamer","Donec aliquet odio ac rhoncus cursus",1200.0,"");
 		Produto p5= new Produto(null, "Rails for Dummies", "Cras fringilla convallis sem vel fauvibus", 100.99, "");
 		
-				
+	
+		
 		
 		
 		
@@ -58,6 +59,16 @@ public class TestConfig implements CommandLineRunner{
 		repositorioDePedidos.saveAll(Arrays.asList(ped1,ped2,ped3));
 		repositorioCategoria.saveAll(Arrays.asList(c1,c2,c3));
 		repositorioDeProduto.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+		
+		p1.getCategorias().add(c2);
+		p2.getCategorias().add(c1);
+		p2.getCategorias().add(c3);
+		p3.getCategorias().add(c3);
+		p4.getCategorias().add(c3);
+		p5.getCategorias().add(c2);
+		
+		repositorioDeProduto.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+		
 		
 	}
 	
