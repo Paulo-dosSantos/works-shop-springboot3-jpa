@@ -75,8 +75,8 @@ public class TestConfig implements CommandLineRunner{
 		
 		repositorioDeProduto.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
 		ItemDePedido oi1 = new ItemDePedido(ped1, p1, 2, p1.getPreco());
-		ItemDePedido oi2 = new ItemDePedido(ped1, p3, 1, p4.getPreco());
-		ItemDePedido oi3 = new ItemDePedido(ped2, p3, 2, p1.getPreco());
+		ItemDePedido oi2 = new ItemDePedido(ped1, p3, 1, p3.getPreco());
+		ItemDePedido oi3 = new ItemDePedido(ped2, p3, 2, p3.getPreco());
 		ItemDePedido oi4 = new ItemDePedido(ped3, p5, 2, p5.getPreco()); 
 		
 		repositorioItemDePedido.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));

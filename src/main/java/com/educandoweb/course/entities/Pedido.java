@@ -113,6 +113,10 @@ public class Pedido implements Serializable {
 	public Set<ItemDePedido> getItems() {
 		return items;
 	}
+	
+	public double getTotal() {
+		return items.stream().map(p->p.getSubTotal()).reduce(0.0, (x,y)->x+y);
+	}
 
 	@Override
 	public int hashCode() {
