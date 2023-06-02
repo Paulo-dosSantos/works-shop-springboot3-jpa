@@ -13,7 +13,7 @@ import com.educandoweb.course.entities.Pedido;
 import com.educandoweb.course.services.ServicoDePedidos;
 
 @RestController
-@RequestMapping(value="/orders")
+@RequestMapping(value="/pedidos")
 public class PedidoResource {
 	
 	@Autowired

@@ -13,7 +13,7 @@ import com.educandoweb.course.entities.Usuario;
 import com.educandoweb.course.services.ServicoDeUsuarios;
 
 @RestController
-@RequestMapping(value="/users")
+@RequestMapping(value="/usuarios")
 public class UserResource {
 	
 	@Autowired
