@@ -10,6 +10,8 @@ import com.educandoweb.course.entities.Usuario;
 import com.educandoweb.course.repositories.RepositorioUsuario;
 import com.educandoweb.course.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class ServicoDeUsuarios {
 	
@@ -31,15 +33,24 @@ public class ServicoDeUsuarios {
 		return repository.save(usuario);
 	}
 	public void deletar(Long id) {
+		
+	
 		repository.deleteById(id);
+		
 	}
 	public Usuario atualizar(Long Id, Usuario usuario) {
-		Usuario entidade= repository.getReferenceById(Id);
-		atualizarData(entidade,usuario);
-		return repository.save(entidade);
+		try {
+			Usuario entidade= repository.getReferenceById(Id);
+			atualizarDados(entidade,usuario);
+			return repository.save(entidade);
+		}
+		catch(EntityNotFoundException e) {
+			
+			throw new ResourceNotFoundException(Id);
+		}
 	}
 
-	private void atualizarData(Usuario entidade, Usuario usuario) {
+	private void atualizarDados(Usuario entidade, Usuario usuario) {
 		entidade.setNome(usuario.getNome());
 		entidade.setEmail(usuario.getEmail());
 		entidade.setTelefone(usuario.getTelefone());
